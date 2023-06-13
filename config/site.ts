@@ -1,11 +1,13 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "Offers reply",
+  name: "Job Reply Assistant",
   description:
-    "Beautifully designed components built with Radix UI and Tailwind CSS.",
+    "AI-Powered Job Offer Reply Assistant.",
   links: {
+    site: 'https://joanasantos.vercel.app/',
     twitter: "https://twitter.com/joanamcsa",
-    github: "https://github.com/joanamcsa/job-reply-bot",
+    github: "https://github.com/joanamcs/job-reply-bot",
+    codeScope: "https://code-scope.vercel.app/"
   },
 }

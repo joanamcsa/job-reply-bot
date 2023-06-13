@@ -55,10 +55,7 @@ export async function aiReply(message: string, accept: boolean): Promise<string 
 
     const res = await chain.call({ message, accept })
 
-    console.log("Successful completion", {
-      message,
-      res,
-    })
+    console.log("Successful completion")
     return res.text
   } catch (e) {
     console.error("Error: Something went wrong in the AI reply", e)

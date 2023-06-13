@@ -4,8 +4,7 @@ import Link from "next/link"
 import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
-import { Icons } from "@/components/icons"
-import {Edit2} from "lucide-react";
+import Image from "next/image";
 
 interface MainNavProps {
   items?: NavItem[]
@@ -14,10 +13,14 @@ interface MainNavProps {
 export function MainNav({ items }: MainNavProps) {
   return (
     <div className="flex gap-6 md:gap-10">
-      <Link href="/" className="flex items-center space-x-2">
-        <Edit2 />
-        <span className="inline-block font-bold">{siteConfig.name}</span>
-      </Link>
+      <div className="flex items-center gap-2">
+        <Link href={siteConfig.links.site}>
+          <Image src={'/ladybug.png'} alt={'ladybug'} width={32} height={32}/>
+        </Link>
+        <Link href="/" >
+          <span className="inline-block font-bold">{siteConfig.name}</span>
+        </Link>
+      </div>
       {items?.length ? (
         <nav className="flex gap-6">
           {items?.map(

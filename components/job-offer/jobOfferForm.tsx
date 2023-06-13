@@ -8,7 +8,7 @@ import {useForm} from "react-hook-form";
 import { z } from "zod"
 import {zodResolver} from "@hookform/resolvers/zod";
 import {useState} from "react";
-import {Loader} from "lucide-react";
+import { Loader2 } from "lucide-react";
 
 const formSchema = z.object({
   message: z.string().min(4, {
@@ -41,6 +41,8 @@ export function JobOfferForm({ onClick, clearFields }: JobOfferFormProps) {
     clearFields()
   }
 
+  const isSubmiting = form.formState.isSubmitting;
+
   return (
       <div className={'flex flex-col md:w-1/2 w-full'}>
         <Form {...form}>
@@ -52,9 +54,9 @@ export function JobOfferForm({ onClick, clearFields }: JobOfferFormProps) {
                 <FormItem>
                   <FormControl>
                     <Textarea
-                      disabled={form.formState.isSubmitting}
+                      disabled={isSubmiting}
                       className={'md:min-h-[350px] min-h-[200px]'}
-                      placeholder="Enter your job offer message."
+                      placeholder="Paste your job offer message here."
                       {...field}
                     />
                   </FormControl>
@@ -63,36 +65,32 @@ export function JobOfferForm({ onClick, clearFields }: JobOfferFormProps) {
               )} />
 
               <div className={'flex gap-2 justify-between'}>
-                {form.formState.isSubmitting ?
-                  <Loader/>
-                  :
-                    <>
-                      <Button
-                        variant={'secondary'}
-                        className={'max-w-[80px]'}
-                        onClick={resetFields}
-                      >
-                        Clear
-                      </Button>
-                      <div className={'flex gap-2 justify-end'}>
-                        <Button
-                          type={'submit'}
-                          variant={'secondary'}
-                          onClick={()=> setAccept(false)}
-                          disabled={form.formState.isSubmitting}
-                        >
-                          Reject
-                        </Button>
-                        <Button
-                          type={'submit'}
-                          onClick={()=> setAccept(true)}
-                          disabled={form.formState.isSubmitting}
-                        >
-                          Accept
-                        </Button>
-                      </div>
-                    </>
-                }
+                  <Button
+                    variant={'secondary'}
+                    className={'max-w-[80px]'}
+                    onClick={resetFields}
+                  >
+                    Clear
+                  </Button>
+                  <div className={'flex gap-2 justify-end'}>
+                    <Button
+                      type={'submit'}
+                      variant={'secondary'}
+                      className={'w-20'}
+                      onClick={()=> setAccept(false)}
+                      disabled={isSubmiting}
+                    >
+                      {isSubmiting ? <Loader2 className="h-4 w-4 animate-spin"/> : 'Reject' }
+                    </Button>
+                    <Button
+                      type={'submit'}
+                      className={'w-20'}
+                      onClick={()=> setAccept(true)}
+                      disabled={isSubmiting}
+                    >
+                      {isSubmiting ? <Loader2 className="h-4 w-4 animate-spin"/> : 'Accept' }
+                    </Button>
+                  </div>
               </div>
           </form>
         </Form>
