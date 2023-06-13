@@ -25,6 +25,7 @@ export function ReplyOffer({ onClick }: ReplyOfferProps) {
         title: 'Message copied to clipboard'
       })
     } else {
+      clearFields()
       toast({
         variant: "destructive",
         title: "Something went wrong.",
