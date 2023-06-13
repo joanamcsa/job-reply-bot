@@ -1,39 +1,31 @@
-import Link from "next/link"
-
-import { siteConfig } from "@/config/site"
-import { buttonVariants } from "@/components/ui/button"
+import { aiReply } from "@/ai";
+import { ReplyOffer } from "@/components/job-offer/replyOffer";
+import {AlertAI} from "@/components/job-offer/alertAI";
 
 export default function IndexPage() {
+  async function replyMessage(message: string, accept: boolean): Promise<string | undefined> {
+    "use server"
+
+    return aiReply(message, accept)
+  }
+
   return (
-    <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
-      <div className="flex max-w-[980px] flex-col items-start gap-2">
-        <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl">
-          Beautifully designed components <br className="hidden sm:inline" />
-          built with Radix UI and Tailwind CSS.
-        </h1>
-        <p className="max-w-[700px] text-lg text-muted-foreground">
-          Accessible and customizable components that you can copy and paste
-          into your apps. Free. Open Source. And Next.js 13 Ready.
+    <>
+      <section className="container grid items-center gap-10 pb-8 pt-6 md:py-10">
+        <div className="flex w-full flex-col md:flex-row items-start gap-2 justify-between">
+          <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl min-w-fit">
+            ✨ AI-Powered Job Offer Reply Assistant. <br className="hidden sm:inline" />
+            Seamlessly Connect with Opportunities.
+          </h1>
+          <AlertAI />
+        </div>
+        <ReplyOffer onClick={replyMessage}/>
+      </section>
+      <section className="container inset-x-0 bottom-0 flex items-center justify-center p-4 border-t">
+        <p className="text-xs text-muted-foreground">
+          © 2023 Joana Santos. All rights reserved.
         </p>
-      </div>
-      <div className="flex gap-4">
-        <Link
-          href={siteConfig.links.docs}
-          target="_blank"
-          rel="noreferrer"
-          className={buttonVariants()}
-        >
-          Documentation
-        </Link>
-        <Link
-          target="_blank"
-          rel="noreferrer"
-          href={siteConfig.links.github}
-          className={buttonVariants({ variant: "outline" })}
-        >
-          GitHub
-        </Link>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }
