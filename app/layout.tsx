@@ -2,6 +2,7 @@ import "@/styles/globals.css"
 import { Metadata } from "next"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
+import { Analytics } from "@vercel/analytics/react";
 
 import { siteConfig } from "@/config/site"
 import { SiteHeader } from "@/components/site-header"
@@ -52,6 +53,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <SiteHeader />
             <div className="flex-1">{children}</div>
           </div>
+          <Analytics />
           <TailwindIndicator />
         </ThemeProvider>
       </body>
