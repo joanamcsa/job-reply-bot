@@ -1,5 +1,4 @@
 import "@/styles/globals.css"
-import {Analytics} from "@vercel/analytics/react";
 import { Metadata } from "next"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
@@ -53,7 +52,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <SiteHeader />
             <div className="flex-1">{children}</div>
           </div>
-          <Analytics />
           <TailwindIndicator />
         </ThemeProvider>
       </body>
