@@ -1,21 +1,24 @@
-# next-template
+# ✨ AI-Powered Job Offer Reply Assistant.
 
-A Next.js 13 template for building apps with Radix UI and Tailwind CSS.
+With just a few clicks, you can effortlessly handle incoming job offers and craft professional, personalized responses that leave a lasting impression. 🗒️
 
-## Usage
+No more fretting over the perfect wording or spending hours crafting responses. ✍🏼
 
-```bash
-npx create-next-app -e https://github.com/shadcn/next-template
-```
+Let our ✨ AI-Powered Job Offer Reply Assistant guide you toward success, one response at a time. 🎯
 
-## Features
+⚠️  All the data is sent to OpenAI.
+
+![image](https://github.com/joanamcs/job-reply-bot/assets/97113028/5a694847-c059-4cbd-b449-a18719744534)
+
+
+## Technologies
 
 - Next.js 13 App Directory
 - Radix UI Primitives
 - Tailwind CSS
 - Icons from [Lucide](https://lucide.dev)
-- Dark mode with `next-themes`
-- Tailwind CSS class sorting, merging and linting.
+- Deployed at Vercel
+- OpenAI 
 
 ## License
 
