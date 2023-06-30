@@ -7,7 +7,7 @@ export const siteConfig = {
   links: {
     site: 'https://joanasantos.vercel.app/',
     twitter: "https://twitter.com/joanamcsa",
-    github: "https://github.com/joanamcs/job-reply-bot",
+    github: "https://github.com/joanamcsa/job-reply-bot",
     codeScope: "https://code-scope.vercel.app/"
   },
 }
